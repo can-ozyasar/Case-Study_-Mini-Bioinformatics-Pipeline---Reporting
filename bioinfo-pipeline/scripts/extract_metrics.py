@@ -6,7 +6,6 @@ import numpy as np
 from Bio import SeqIO
 from Bio.SeqUtils import gc_fraction
 
-# Loglama Konfigürasyonu (Kural 5)
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',
@@ -21,7 +20,7 @@ def extract_metrics(input_fastq, output_csv):
     logging.info(f"İşlem başlatıldı. Girdi dosyası: {input_fastq}")
     
     try:
-        # Kural 2: Streaming okuma ve anında yazma (Memory Efficient)
+        # K2 Streaming okuma ve anında yazma 
         with gzip.open(input_fastq, "rt") as handle, open(output_csv, "w", newline='') as out_file:
             writer = csv.writer(out_file)
             # CSV Başlıkları
@@ -29,13 +28,13 @@ def extract_metrics(input_fastq, output_csv):
             
             read_count = 0
             for record in SeqIO.parse(handle, "fastq"):
-                # Metrik hesaplamaları (Kural 6: Vektörize/Optimizeli hesaplama)
+                # Metrik hesaplamaları 
                 read_id = record.id
                 length = len(record)
                 gc_content = gc_fraction(record.seq) * 100
                 mean_qscore = np.mean(record.letter_annotations["phred_quality"])
                 
-                # Anında dosyaya yazarak RAM'i boşalt
+                # Anında dosyaya yazarak ram i boşalt
                 writer.writerow([read_id, length, f"{gc_content:.2f}", f"{mean_qscore:.2f}"])
                 read_count += 1
                 
