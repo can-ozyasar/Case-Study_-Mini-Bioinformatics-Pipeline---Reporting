@@ -1,0 +1,22 @@
+#Pipeline'ın ana beyni; konfigürasyonu yükler, nihai hedefleri belirler ve alt kural dosyalarını modüler olarak içeri aktarır.
+
+
+
+import os
+
+# Konfigürasyon dosyasını yükle (Kural 1: Config-Driven)
+configfile: "config/config.yaml"
+
+# Nihai hedefler (Pipeline bu dosyaları üretmek için DAG'ı geriye doğru çözecek)
+rule all:
+    input:
+        "results/qc/NanoPlot-report.html",
+        "results/plots/read_length_dist.png",
+        "results/plots/gc_content_dist.png",
+        "results/plots/qscore_dist.png"
+
+# Modüler kuralları içeri aktar (Kural 9: Parçalanmış Rule'lar)
+include: "rules/qc.smk"
+include: "rules/metrics.smk"
+include: "rules/visualize.smk"
+

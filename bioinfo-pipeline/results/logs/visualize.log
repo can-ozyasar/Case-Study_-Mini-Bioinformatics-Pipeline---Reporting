@@ -1,0 +1,10 @@
+2026-03-11 07:25:15 [INFO] Veri yükleniyor: results/metrics/read_metrics.csv
+2026-03-11 07:25:15 [INFO]  İSTATİSTİKSEL ÖZET 
+2026-03-11 07:25:15 [INFO] Length -> Ortalama: 1038.24, Medyan: 547.00
+2026-03-11 07:25:15 [INFO] GC_Content_Pct -> Ortalama: 53.00, Medyan: 53.53
+2026-03-11 07:25:15 [INFO] Mean_QScore -> Ortalama: 17.90, Medyan: 17.31
+2026-03-11 07:25:15 [INFO] --------------------------
+2026-03-11 07:25:16 [INFO] Grafik oluşturuldu: read_length_dist.png
+2026-03-11 07:25:17 [INFO] Grafik oluşturuldu: gc_content_dist.png
+2026-03-11 07:25:18 [INFO] Grafik oluşturuldu: qscore_dist.png
+2026-03-11 07:25:18 [INFO] Tüm görselleştirme işlemleri başarıyla tamamlandı.
