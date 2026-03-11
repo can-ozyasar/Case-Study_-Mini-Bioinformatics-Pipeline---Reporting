@@ -1,0 +1,4 @@
+input_fastq: "data/raw/barcode77.fastq.gz"
+threads: 4
+plots_dpi: 300
+out_metrics_csv: "results/metrics/read_metrics.csv"
